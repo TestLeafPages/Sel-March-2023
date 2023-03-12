@@ -1,0 +1,81 @@
+Todays Agenda:
+     2:15 - 2:30 -> Quiz
+     2:30 - 4:00 -> Basic Xpath+Exception
+     4:00 - 4:30 -> Classroom+Break
+     4:30 - 5:30 -> Advanced Xpath
+     5:30 - 6:00 -> Classroom
+     6:00 - 6:30 -> Advanced Xpath
+
+ Relative Xpath:
+   -starts with //
+
+  Exception:
+    -NoSuchElementException
+    -InvalidSelectorException 
+
+  -Basic Xpath:
+  1.Attribute based xpath:
+  Syntax:  //tagName[@attributeName='attributeValue']
+  Example: //input[@id='username']
+
+  2.Text Based Xpath:
+  Syntax:  //tagName[text()='textValue']
+  Example: //label[text()='Username']
+
+  3.Partial Attribute based Xpath:
+  Syntax:  //tagName[contains(@attributeName,'attributeValue')]
+  Example: //input[contains(@class,'Submit')]
+           //input[contains(@id,'companyName')]
+
+  4.Partial textBased XPath:
+  Syntax:  //tagName[contains(text(),'textValue')]  
+  Example: //a[contains(text(),'SFA')]  
+
+  5.Index based Xpath:
+  Syntax: (//tagName[@attributeName='attributeValue'])[index]   
+  Example: (//input[@class='inputLogin'])[2]
+
+
+Advanced Xpath:
+1.Parent to Child:
+  Syntax:  BasicXpathForParent/childTagName
+  Example: //form[@id='login']/p
+           //div[@id='username_container']/input[@id='username']
+
+2.Child to Parent:
+  Syntax:  BasicXpathforChild/parent::parentTagName  
+  Example: //input[@id='password']/parent::p
+
+3.GrandParent to GrandChild:
+  Syntax:  BasicXpathForGrandParent//grandChildTagName  
+  Example: //form[@id='login']//input[@class='decorativeSubmit'] 
+
+4.GrandChild to GrandParent:
+  Syntax:  BasicXpathforGrandChild/ancestor::grandParentTagName
+  Example: //input[@id='password']/ancestor::form 
+
+5.ElderCousin to YoungerCousin:
+  Syntax:   XpathForElderCousin/following::youngerCousingTagName
+  Example:  //span[text()='Company Name']/following::input[@id='createLeadForm_companyName']
+
+6.YoungerCousin to ElderCousin:
+  Syntax:  XpathforYoungerCousin/preceding::ElderCousingTagName  
+  Example: //input[@id='createLeadForm_companyName']/preceding::span[text()='Company Name']
+
+7.ElderSibling to youngerSibling:
+  Syntax:  ElderSiblingXpath/following-sibling::youngerSiblingTagName
+  Example: //label[text()='Username']/following-sibling::input
+
+8.YoungerSibling to elderSibling:
+   Syntax:  youngerSiblingXpath/preceding-sibling::elderSiblingTagName
+   Example: //input[@id='username']/preceding-sibling::label
+
+   
+
+
+
+
+
+
+
+   
