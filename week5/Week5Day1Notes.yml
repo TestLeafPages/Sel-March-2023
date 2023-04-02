@@ -1,0 +1,68 @@
+Todays Agenda:
+
+  -2:30 - 3:30 - TestNG Introduction
+  -3:30 - 4:00 - Sequential Execution
+  -4:00 - 4:30 - Breakout+Break
+  -4:30 - 5:00 - Parallel Execution
+  -5:00 - 5:30 - TestNG Annotations
+  -5:30 - 5:45 - Breakout
+  -5:45 - 6:30 - TestNG Attributes
+
+
+  Steps to run as testng:
+  1.Convert the main method to a normal method
+     -remove static
+     -remove arguments
+     -give meaningful name for the method
+  2.Add @Test on the top of the method
+     - import from org.testng.annotations
+  3.Right click on the class run as->TestNG Test      
+
+
+
+
+  Steps to run the testcases sequentially and parellely:
+  1.Select the converted testcases 
+  2.Right click -> TestNg -> Convert to TestNG
+  3.testng.xml will be generated under the project
+  4.Open the testng.xml file and click source tab
+  5.From the xml file -> Right Click-> Run as testng suite
+  6.Add attribute verbose to get the failure logs in the console
+  7.To get the reports
+     -After running the testcases
+     -Right click on the Project->Refresh
+     -Click test-output folder
+     -Right click index.html and Open with system editor 
+  8.To run the testcase parallely
+     -In the xml file add parallel attribute
+     -Give thread-count to set the max limit for the number of threads to be executed parallely.
+
+
+Annotation Hierarchy:
+  @BeforeSuite - Create a report in a particular folder 
+
+     @BeforeTest  -  Set values
+
+        @BeforeClass  - data information
+
+           @BeforeMethod - precondition 
+
+             @Test  (testcase)
+
+           @AfterMethod - post condition
+
+        @AfterClass 
+
+     @AfterTest
+
+   @AfterSuite   -        
+
+Steps:
+  1.Create a BaseClass
+    - create preCondition() and annotate with @BeforeMethod
+       (Login steps)
+       Declare ChromeDriver driver globally and remove the local declaration
+    - create postCondition() and annotate with @AfterMethod
+        (close the browser)
+  2.All the testcases should extend BaseClass      
+  2.Run from the xml file and confirm
