@@ -1,0 +1,114 @@
+Todays Agenda(Week7-Day1):
+    - 2:30 - 3:30 - TestNG-Excel Integration
+    - 3:30 - 4:00 - Breakout
+    - 4:00 - 4:30 - static keyword
+    - 4:30 - 5:00 - Constructor
+    - 5:00 - 5:15 - this keyword
+    - 5:15 - 5:45 - Breakout
+    - 5:45 - 6:30 - Explicit wait
+
+
+    @BeforeSuite
+        
+        @BeforeTest
+
+          @BeforeClass
+                  
+               @DataProvider
+
+                  @BeforeMethod
+
+                       @Test
+
+
+Steps to integrate Excel with DataProvider:
+1. Declare a String[][] variable in ReadExcel class with dimensions as rowCount and columnCount
+2.Push all the data of the ExcelSheet to the 2 dimensional array 
+3.Change main() to a normal static method
+     -Remove String[] args
+     -Give meaningful methodName
+4.return the data and change the method return type to String[][];
+
+
+Steps to have common dataProvider:
+1.Declare the sendData() in the BaseClass and annotate with @DataProvider
+2.In the ReadExcel class pass fileName as the input arguments for the method
+3.In the sendData call ReadExcel and call the static method
+4.Declare ExcelFileName variable globally
+4.Pass the variable inside the method
+5.Create setValues() inside each class 
+    -set ExcelFileName
+    -Annotate with @BeforeTest
+
+
+
+Static keyword:
+===============
+   -Static will be used for common data
+   -Only one copy will be there for static data
+   -If we update the static data it will be overriden
+
+ It van be used for the members of the class
+ -Variable
+ -method
+    *You dont have to create an object 
+    *You can directly call the method if it is inside the same class
+    *If you want to access a static method from another class then
+    inside the main method Call the classname.methodname
+ -block  
+
+Constructor:
+   - It is used to initialize the state of an object
+   - Constructor name should be same as that of the classname
+   - Constructor will not have any returntype
+
+ Types of Constructor:
+   -default Contructor
+   -Parameterized Constructor  
+ Constructor overloading
+
+ - Calling one constructor from another constructor is called Constructor Chaining
+ - It can be achieved using this keyword
+
+ this:
+    - It is used to refer to the current object instance within a  class
+    - It is used to avoid naming conflicts between the global variable and the local variable that have the same name
+Waits:
+  -Implicit wait
+     It is applicable for findElement and findElements()
+     It will search for the element inside the DOM
+     NoSuchelementException
+   
+  -Thread.sleep(8000) 
+     It is applicable for a single line of code
+     It will sleep for 8000ms
+     It is not a good approach
+     It will slow down the execution process
+
+ -Explicit Wait:
+    When you like to wait for the behaviour of the element 
+
+    a)to become clickable
+    b)element to visible
+    c)element to become enabled
+    d)alert to appear
+    e)window to appear    
+
+    FluentWait 
+      It is the parent class if WebDriverWait
+    WebDriverWait
+    Solution:
+      Every 500ms (polling interval) , the code will check if the expected condition is met
+
+      If it is met - > perform the action
+      If it is not met - > sleep for another 500ms before polling again
+
+      After croosing the maximum limit - > It will throw TimeOutException   
+
+
+           
+
+
+
+
+
