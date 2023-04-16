@@ -1,0 +1,63 @@
+Todays Agenda:
+   - 2:30 - 3:00 - BDD Introduction
+   - 3:00 - 3:30 - How to create feature file
+   - 4:00 - 4:15 - Breakout
+   - 4:15 - 5:00 - Implement StepDefintion and Runner for Execution
+   - 5:00 - 5:30 - Breakout
+   - 5:30 - 6:00 - Apply Parameterization
+   - 6:00 - 6:30 - Execute Scenarios for multiple data
+                    
+
+Steps to create feature file:
+1.Under sr/test/java create 3 packages
+    -features
+      -Create a fetaure file
+      -Right click on features package->New -> Other->General->File->Click File->
+       ->Login.feature->Finish
+    -steps
+    -runner
+
+2.Open Login.feature 
+   -Write Feature and put colon and leave a space and write the functionality of the application
+   -Write Scenario and put colon and leave space and write the testcase description
+   -Inside Scenario write 
+      -For precondition use Given keyword
+      -For teststep use When keyword
+      -For expected result use Then keyword(for positive result) 
+Steps to implement in StepDefinition:
+1.Create StepDefintion inside steps package
+2.Create methods in StepDefinition class for each steps in the Scenario
+3.Write the original Selenium code inside the corresponding methods
+4.To integrate feature file and the StepDefintion 
+   -On the top of each method use Cucumber annotation and
+   write the step
+5.Create CucucmberRunner class under runner package
+  -This CucumberRunner class should extend AbstractTestNGCucumberTests
+  -On the top of the class use @CucumberOptions()
+     -Inside this annotation use attributes
+       -features-mention the path of the feature file
+       -glue-mention the package name of the stepDefinition
+       -To remove the unreadble characters in the console
+      use monochrome = true
+      -To get the cucumber report in the console use publish=true   
+
+   -Right click run as TestNG Test   
+
+
+   UndefinedStepException
+     -If you have not defined the steps in the StepDefintion for the feature file 
+Parameterization:
+1. In the feature file check afor the datas
+      -Demosalesmanager
+      -crmsfa
+ 2. Surround the data with single quote
+ 3. In the StepDefinition replace the data with {string}
+ 4. For the method level
+     -Pass the input argument
+     -Replace the hardcoded data with input argument 
+
+  Apply background keyword for the common steps 
+  Create CreateLead.feature file       
+
+How to pass multiple data for a Scenario:
+Step1: ScenarioOutline 
