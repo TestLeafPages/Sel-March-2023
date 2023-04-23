@@ -1,0 +1,76 @@
+Today's Agenda:
+  - 2:15 - 2:30 -> Quiz
+  - 2:30 - 3:00 -> POM-Parallel Execution
+  - 3:00 - 3:30 -> Parameterization
+  - 3:30 - 4:00 -> Excel Integration
+  - 4:00 - 4:30 -> Breakout
+  - 4:30 - 5:30 -> POM-Multilingual
+  - 5:30 - 5:45 -> Breakout
+  - 5:45 - 6:00 -> Cross browser testing
+  - 6:00 - 6:30 -> POM with cucumber
+
+POM 
+ - PageObjectModel design pattern
+  pom.xml - project object model
+   - maintain the dependencies
+
+  Steps to implement PageObjectModel:
+  1) Create packages
+      - base
+        Create BaseClass and have all the common codes
+      - pages
+      -testcase
+        Create RunLogin class should extends BaseClass and create verifyLogin() and annotate with @Test
+        Create object for LoginPage() and access all the methods
+  2) Create 6 classes under pages package
+      - LoginPage
+         a)Create 3 methods and add return statement inside each method based on the navigation
+      - WelcomePage
+         a) Create 1 method and add return statement
+      - MyHomePage
+      - MyLeadPage
+      - CreateLeadPage
+      - ViewLeadsPage
+
+
+
+  Steps to achieve parallel execution:
+  ===================================
+  1) Remove static keyword in the base class
+  2) Create Constructor for each pages 
+  3) Pass input argument to the Constructor as  ChromeDriver driver
+  4) Inside the parameterized constructor assign the local variable to the global variable
+    using this.driver = driver
+  5) Pass driver inside each constructor call at the pages level as well as the testcase level
+  6) Create testng.xml and run the two testcases parallely  
+
+
+
+Steps to Integrate Excel with POM:
+1) Create Excel sheet under data folder
+    -LoginExcel
+    -CreateLeadExcel
+2) Create utils package under src/main/java
+    -Copy and paste ReadExcel class   inside utils package
+3) Create sendData() in the BaseClass and annotate with @DataProvider
+4) Call ReadExcel class and method and return it
+5) DEclare String ExcelFileName globally.
+6) In the testcase with @Test integrate dataProvider
+7) Create setValues() inside testcase class and annotate with @BeforeTest
+8) Set the ExcelFileName inside setValues()
+9) For the method level pass input arguments
+10) Finally, replace the hardcoded data with the arguments
+
+How to read data from Properties file?
+  - Properties file is used to keep static data for project
+  - Properties class 
+
+ FileInputStream -> Used to read data from  the file
+
+ Steps to Integrate POM with Cucumber:
+ 1) Create Features package inside POM project
+ 2) steps package can be renamed to pages
+ 3) Inside each method add return statement
+ 4) From the runner class run cucumber feature file
+
+
